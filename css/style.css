@@ -1,0 +1,576 @@
+:root {
+    --mainColor: #fff;
+}
+
+*{
+    color: #222;
+    border-width: 0;
+    border-style: solid;
+    border-color: #ddd;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:14px;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    background-color: transparent;
+    text-align: left;
+}
+body{
+    background-color: var(--mainColor); /*#eee*/
+}
+
+/*ändern des cursors beim submit button*/
+input[type=submit]{
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+/*kleine ueberschrift*/
+h3{
+    font-size:14px;
+    font-weight:normal;
+}
+
+/*-----Navigation-----*/
+
+#navi {
+    list-style-type: none;
+    /*overflow: hidden;*/
+}
+
+#navi li {
+    float: left;
+}
+
+#navi li:last-child {
+    float: right;
+}
+
+
+#navi > li > a {
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
+    color: #fff;
+    padding: 14px 14px;
+}
+
+#navi > li > a:hover {
+    text-decoration: underline;
+}
+
+/*Border bottom wenn active*/
+#navi > li > a#active {
+    border-bottom-width: 3px;
+    border-bottom-color: #fff;
+}
+
+#nav-container{
+    background-color: #17b;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 6px 12px -4px rgba(0,0,0,0.25);
+    padding: 0px 10px;
+    height:47px;
+}
+
+/*search container*/ /*font size 0 wegen einem komischen abstand, todo: suche nach lösung*/
+#search-box{
+    font-size: 0;
+    border-color:#ddd;
+    display:flex;
+    height:50px;
+}
+
+.searchding{
+    /*display:flex;*/
+    /*flex-grow: 1;*/
+
+}
+.customCheckbox {
+    padding-top: 10px;
+}
+
+.btn2{
+    border-width: 1px;
+    /*padding-left: 20px;*/
+    display: flex;
+    /*margin-right:10px;*/
+    flex-grow: 1;
+}
+
+.btn2{
+    margin-right:10px;
+}
+
+.btn2:last-child{
+    margin-right:0px;
+}
+
+.fest{
+    min-width: 185px;
+    max-width: 185px;
+}
+
+.iconOben{
+    background-color: #17b;
+    padding: 0px 10px;
+    min-width: 50px;
+    cursor: pointer;
+}
+
+/*im main container sind alle container einer seite enthalten bis auf das Menü*/
+#main-container{
+    padding: 10px;
+}
+
+.content {
+    margin-left: auto;
+    margin-right:auto;
+    max-width: 700px;
+    /*overflow: hidden;*/
+}
+
+/*eintrag*/
+.eintrag {
+    overflow: hidden;
+}
+
+/*buch eintrag*/
+.buch{
+    border-top-width: 1px;
+    /*margin: 0px 10px;*/
+}
+
+/*erster eintrag in der Buecherliste*/
+#ersterEintrag{
+    border-top-width: 0px;
+}
+
+.info {
+    border-bottom-width: 1px;
+    display:block;
+    padding: 10px 0px;
+}
+
+.item {
+    display: block;
+    text-decoration: none;
+    padding: 6px 6px;
+    margin:8px;
+    background-color: transparent;
+}
+
+.right{
+    float:right;
+}
+
+.left{
+    float:left;
+}
+
+
+.box{
+    /*border-width: 1px;*/
+    /*margin: 8px;*/
+    /*background-color: #fff;*/
+    /*margin: 10px 0px 0px 0px;*/
+}
+
+#suche{
+    padding: 10px 10px;
+}
+
+/*Icons*/
+.fa-trash::before {
+    color: #aaa;
+}
+
+a.item.right:hover i.fas.fa-trash::before{
+    color: #222;
+}
+
+.fa-edit::before {
+    color: #aaa;
+}
+
+a.item.right:hover i.fa.fa-fw.fa-edit::before{
+    color: #222;
+}
+.icon:hover {
+    background-color: #488fe1;
+}
+.fa-search{
+    color: #fff;
+}
+button.item.right i.fas.fa-search:hover{
+    cursor: pointer;
+}
+
+.fa-sign-out-alt{
+    color: #fff;
+}
+i:hover i.fas.fa-sign-out-alt{
+    color: #eef;
+}
+
+.fas.fa-user-plus, .fas.fa-plus, .fas.fa-user, .fas.fa-users{
+    color: #fff;
+    /*font-size: 1.5em;*/
+    /*line-height: 56px;*/
+}
+
+.iconOben:hover{
+    background-color: #488fe1;
+}
+
+i{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    height: 56px;
+    width: 60px;
+    background-color: #17b;
+    /*background-color: #eee;*/
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    right: 24px;
+    top: 18px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/*remove Turnkey credits*/
+#turnkey-credit{
+    display:none;
+}
+
+
+.select-wrapper {
+    width: 100%;
+    padding: 10px;
+    /*
+    height: 46px;
+    box-sizing: border-box;
+    padding: 13px;
+    */
+
+}
+
+select option {
+    color: #666;
+}
+
+select {
+    cursor: pointer;
+}
+
+#sortding{
+    width: 200px;
+}
+
+
+
+.dropbtn {
+    /* background-color: #069193; */
+    /* color: white; */
+    /* height: 16px; */
+    width: 32px;
+    height: 32px;
+    /* padding: 16px; */
+    /* font-size: 32px; */
+    border: none;
+    /* cursor: pointer; */
+    margin-top: 9px;
+    border-radius: 100px;
+    /* padding: 5px 15px; */
+    /* width: 16px; */
+}
+
+.profileBoxInfo{
+    margin:10px;
+}
+
+.profileBoxInfo > a{
+    display: block;
+}
+
+
+.linkBox {
+    display: flex;
+    border-radius: 10px;
+    margin: 10px 0px;
+}
+
+
+.unterstrich{
+    border-top-width: 1px;
+    border-color: #eee;
+}
+
+.unterstrich:first-of-type{
+    border-top-width: 0px;
+}
+
+.leftProfileBox > *{
+    margin:10px;
+}
+
+.rightProfileBox > *{
+    margin:10px;
+}
+
+
+
+.linkBox:hover {
+    background-color: #eee;
+}
+
+.leftProfileBox{
+    width: 100%;
+}
+
+.rightProfileBox{
+    min-width: 64px;
+    min-height: 64px;
+}
+
+/*login css*/
+
+.login {
+    margin-left: auto;
+    margin-right:auto;
+    max-width: 300px;
+    overflow: hidden;
+}
+
+
+body.login{
+    background-color: #eee;
+}
+
+body.login > #main-container{
+    background-color: #fff;
+    border-width: 1px;
+    border-color: #ddd;
+    margin-top:100px;
+}
+
+.btn{
+    padding: 10px;
+    background-color: #17b;
+    border-width: 1px;
+    border-color: #12b;
+    border-radius: 100px;
+    color: #fff;
+    text-align:center;
+    width:100%;
+}
+
+.inputContainer {
+    padding: 0px 10px;
+    border: 1px solid #a9a9a9;
+    margin: 10px 0px;
+    border-radius: 100px;
+}
+.inputContainer input[type=text] {
+    width: 100%;
+    display: block;
+    padding: 10px 0px;
+}
+.inputContainer input[type=password] {
+    width: 100%;
+    display: block;
+    padding: 10px 0px;
+}
+
+div.monthlyOptions {
+    display: none;
+}
+
+#checkDaily:checked ~ div.weekdaysBoxes {
+    display: none;
+}
+
+#checkMonthly:checked ~ div.monthlyOptions {
+    display: initial;
+}
+.textLeft {
+    text-align: left;
+}
+.textRight {
+    text-align: right;
+}
+.strong {
+    font-weight: bold;
+}
+.nachricht {
+    padding-left: 20px;
+}
+
+/* popups without javascript */
+
+/* showing popup background */
+a.popup:target { display: block; }
+
+/* showing popup */
+a.popup:target + div.popup { display: block; }
+
+/* popup target anchor and background */
+a.popup {
+    /* background is initially hidden */
+    display		: none;
+    position	: fixed;
+    top		: 0;
+    left		: 0;
+    z-index		: 3; /* anything, really, but bigger than other elements on the page */
+    width		: 100%;
+    height		: 100%;
+    background	: rgba(0, 0, 0, 0.8);
+    cursor		: default;
+}
+
+/* popup window */
+div.popup {
+    /* popup window is initially hidden */
+    display 	: none;
+    background	: white; /* choose your color; */
+    width		: 480px; /* width */
+    min-height		: 50px; /* height */
+    position	: fixed;
+    top		: 50%;
+    left		: 50%;
+    margin-left	: -240px; /* = -width / 2 */
+    margin-top	: -60px; /* = -height / 2 */
+    z-index		: 4; /* z-index of popup backgroung + 1 */
+
+    -webkit-box-sizing : border-box;
+    -moz-box-sizing	: border-box;
+    -ms-box-sizing	: border-box;
+    box-sizing	: border-box;
+    padding     : 10px;
+}
+
+/* links to close popup */
+div.popup > a.button {
+    border: 1px solid;
+    padding: 5px 20px;
+    text-align: center;
+    float: right;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+div.popup > h3 {
+    font-weight: bold;
+    font-size: 24px;
+    color: lightcoral;
+    margin-bottom: 10px;
+}
+
+.noline {
+    border: none;
+}
+
+.eintrag input {
+    /*background-color: #f6f6f6;*/
+    /*border-radius: 1em/50%;*/
+    padding: 5px 10px;
+    border-bottom-width: 1px;
+}
+
+.wdhbox {
+    padding: 0px 10px;
+}
+
+#checkDaily, #checkWeekly, #checkMonthly {
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+.weekdaysBoxes input[type="checkbox"] {
+    margin-left: 20px;
+}
+
+.hiddenAt600{
+    padding: 0px 10px;
+}
+
+.alignItem{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
+@media (max-width: 600px) {
+    .hiddenAt600 {
+        display: none;
+    }
+
+    .smallAt600{
+        max-width: 50px;
+        min-width: 50px;
+    }
+}
