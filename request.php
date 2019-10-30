@@ -63,9 +63,4 @@ if (isset($_GET['nfc'])){
 
     echo json_encode($nachrichtenlisteSortiert3);
 
-    //test um nachzuschauen ob es aufgerufen wird
-    $betreuer = new Betreuer();
-    $betreuer->setUsername("Testuser");
-    $betreuer->insert();
-
 }

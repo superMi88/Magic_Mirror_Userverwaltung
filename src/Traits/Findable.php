@@ -6,7 +6,6 @@ trait Findable
     public static function findeAlle($sortiere, $sucheWort="")
     {
 
-        echo "wird aufgerufen";
         $name = preg_split('/-/', $sortiere);
 
         if(!empty($sortiere)){
