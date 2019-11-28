@@ -9,7 +9,11 @@ class Klient
 
     protected static $table = 'Klient';
 
-    use ActiveRecordable, Findable, Persistable, Deletable;
+    use ActiveRecordable, Findable, Persistable;
+
+    use Deletable{
+        loesche as traitLoesche;
+    }
 
     protected static $db;
 
@@ -66,4 +70,11 @@ class Klient
         $this->name = $name;
     }
 
+    public function loesche(){
+        //Delete Connections
+        $this->deleteConnection("BetreuerZuKlient", "KlientID", "", "");
+        $this->deleteConnection("KlientZuNachricht", "KlientID", "", "");
+        //Delete User
+        $this->traitLoesche();
+    }
 }

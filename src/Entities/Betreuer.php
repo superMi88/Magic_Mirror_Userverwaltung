@@ -8,7 +8,11 @@ class Betreuer
 
     protected static $table = 'Betreuer';
 
-    use ActiveRecordable, Findable, Persistable, Deletable;
+    use ActiveRecordable, Findable, Persistable;
+
+    use Deletable{
+        loesche as traitLoesche;
+    }
 
     protected static $db;
 
@@ -53,6 +57,11 @@ class Betreuer
 
     }
 
-
+    public function loesche(){
+        //Delete Connections
+        $this->deleteConnection("BetreuerZuKlient", "BetreuerID", "", "");
+        //Delete Betreuer
+        $this->traitLoesche();
+    }
 
 }

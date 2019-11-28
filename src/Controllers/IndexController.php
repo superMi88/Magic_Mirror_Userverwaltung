@@ -49,17 +49,10 @@ class IndexController extends AbstractBase
     protected function userlisteAction()
     {
 
-        //wenn es ein Betreuer zu löschen gibt löschen
+        //wenn etwas zu loeschen ist suche es per id raus und loesche es
         if(isset($_GET['loesche'])){
-
-            //suche das user mit der id von loesche
-            $user = Betreuer::finde('id', $_GET['loesche']);
-
-            //teste ob user instanceof Betreuer falls die id in der Datenbank nicht exestiert
-            if($user instanceof Betreuer){
-                $user->deleteConnection("BetreuerZuKlient", "BetreuerID", "", "");
-                $user->loesche();
-            }
+            $betreuer = Betreuer::finde('id', $_GET['loesche']);
+            $betreuer->loesche();
         }
 
         $this->addContext('sortiere', isset($_GET['sortiere']) ? $_GET['sortiere'] : 'titel');
@@ -75,21 +68,13 @@ class IndexController extends AbstractBase
 
     protected function nachrichtenlisteAction()
     {
-        //wenn es ein Betreuer zu löschen gibt löschen
+        //wenn etwas zu loeschen ist suche es per id raus und loesche es
         if(isset($_GET['loesche'])){
-
-            //suche das user mit der id von loesche
             $nachricht = Nachricht::finde('id', $_GET['loesche']);
-
-            //teste ob user instanceof Betreuer falls die id in der Datenbank nicht exestiert
-            if($nachricht instanceof Nachricht){
-                $nachricht->deleteConnection("KlientZuNachricht", "NachrichtID", "", "");
-                $nachricht->loesche();
-            }
+            $nachricht->loesche();
         }
 
         $this->addContext('sortiere', isset($_GET['sortiere']) ? $_GET['sortiere'] : 'titel');
-
         $this->addContext('suche', isset($_GET['suche']) ? $_GET['suche'] : '');
 
         //setze den ersten Eintrag auf true, der erste Eintrag bekommt im template eine zusätzliche id wenn es der
@@ -210,16 +195,10 @@ class IndexController extends AbstractBase
     protected function klientlisteAction()
     {
 
-        //wenn es ein Betreuer zu löschen gibt löschen
+        //wenn etwas zu loeschen ist suche es per id raus und loesche es
         if(isset($_GET['loesche'])){
-            //suche das user mit der id von loesche
             $user = Klient::finde('id', $_GET['loesche']);
-            //teste ob user instanceof Betreuer falls die id in der Datenbank nicht exestiert
-            if($user instanceof Klient){
-                $user->deleteConnection("BetreuerZuKlient", "KlientID", "", "");
-                $user->deleteConnection("KlientZuNachricht", "KlientID", "", "");
-                $user->loesche();
-            }
+            $user->loesche();
         }
 
         if(isset($_GET['showAll'])){
@@ -227,7 +206,7 @@ class IndexController extends AbstractBase
 
         }else{
 
-            //todo an findXfrom Objekt eine übergabe mache zum sortieren
+            //todo vielleicht an findXfrom Objekt eine übergabe mache zum sortieren
             $liste = Klient::findXfromObject("Betreuer", $_SESSION['userid'],"*");
             $this->addContext('userliste', $liste);
         }
@@ -361,14 +340,16 @@ class IndexController extends AbstractBase
             $user = Betreuer::findeName($_REQUEST['username']);
 
             if($user == null){
-                redirect('#my_popup_nouser');
+                //redirect('index.php?action=login&user=false');
+                $this->addContext('WrongUsername', true);
             }else{
 
                 if(password_verify($_REQUEST['password'] , $user->getPassword())){
                     $_SESSION['userid'] = $user->getId();
                     redirect('index.php');
                 }else{
-                    redirect('#my_popup_incorrectpw');
+                    //redirect('index.php?action=login&password=false');
+                    $this->addContext('WrongPassword', true);
                 }
             }
         }

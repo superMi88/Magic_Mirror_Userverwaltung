@@ -432,17 +432,9 @@ body.login > #main-container{
 .inputContainer {
     padding: 0px 10px;
     border: 1px solid #a9a9a9;
-    /*border-radius: 100px;*/
+    margin: 10px 0px;
+    border-radius: 100px;
 }
-
-.inputContainerUser {
-    margin: 10px 0px 5px 0px;
-}
-
-.inputContainerPassword {
-    margin: 5px 0px 10px 0px;
-}
-
 .inputContainer input[type=text] {
     width: 100%;
     display: block;
@@ -581,39 +573,4 @@ div.popup > h3 {
         max-width: 50px;
         min-width: 50px;
     }
-}
-
-#wrongInputUser, #wrongInputPass {
-    border: 1px solid #a9a9a9;
-    border-top: none;
-    padding: 10px;
-    background-color: #ffadad;
-    display: block;
-}
-
-#wrongInputPass {
-    margin-bottom: 10px;
-}
-
-#wrongInputUser {
-    margin-bottom: 5px;
-}
-
-#wrongInputUser ~ .inputContainerUser {
-    border-bottom: none;
-    /*border-radius: 15px 15px 0px 0px;*/
-    margin-bottom: 0px;
-    height: auto;
-}
-
-#wrongInputPass ~ .inputContainerPassword {
-    border-bottom: none;
-    /*border-radius: 15px 15px 0px 0px;*/
-    margin-bottom: 0px;
-    height: auto;
-}
-
-.inputs {
-    display: flex;
-    flex-direction: column-reverse;
 }

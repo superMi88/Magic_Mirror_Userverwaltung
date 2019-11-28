@@ -22,6 +22,7 @@ if(!class_exists($controllerName)) {
     $controllerName = 'IndexController';
 }
 
+session_set_cookie_params(2592000);
 session_start();
 
 //Wenn die action im Controller nicht existiert setze die action auf 'index'

@@ -21,7 +21,11 @@ class Nachricht
 
     protected static $table = 'Nachricht';
 
-    use ActiveRecordable, Findable, Persistable, Deletable;
+    use ActiveRecordable, Findable, Persistable;
+
+    use Deletable{
+        loesche as traitLoesche;
+    }
 
     protected static $db;
 
@@ -388,4 +392,12 @@ class Nachricht
         }
         return date("d.m.Y");
     }
+
+    public function loesche(){
+        //Delete Connections
+        $this->deleteConnection("KlientZuNachricht", "NachrichtID", "", "");
+        //Delete User
+        $this->traitLoesche();
+    }
+
 }

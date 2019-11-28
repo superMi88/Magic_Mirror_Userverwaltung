@@ -22,4 +22,6 @@ trait Deletable
         $abfrage = self::$db->prepare($sql);
         $abfrage->execute([$this->getId()]);
     }
+
+
 }
