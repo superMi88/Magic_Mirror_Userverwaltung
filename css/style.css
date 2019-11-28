@@ -22,10 +22,11 @@ body{
 
 /*ändern des cursors beim submit button*/
 input[type=submit]{
-    border: 1px solid gray;
     border-radius: 5px;
-    background-color: lightgray;
+    background-color: #2f77bb;
     cursor: pointer;
+    color: white;
+    padding: 10px;
 }
 
 /*kleine ueberschrift*/
@@ -421,8 +422,6 @@ body.login > #main-container{
 .btn{
     padding: 10px;
     background-color: #17b;
-    border-width: 1px;
-    border-color: #12b;
     border-radius: 100px;
     color: #fff;
     text-align:center;
